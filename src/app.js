@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
+const scoresRouter = require('./scores/scores-router')
+const coursesRouter = require('./courses/courses-router')
 
 const app = express()
 
@@ -15,16 +17,14 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
+app.use('/api/scores', scoresRouter)
+app.use('/api/courses', coursesRouter)
+
 console.log(process.env.NODE_ENV)
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')
     })
-
-app.get('/view-course-list', (req, res) => {
-    res.send(['course1', 'course2', 'course3']);
-    res.end();
-    });
 
 app.use(function errorHandler(error, req, res, next) {
     let response
