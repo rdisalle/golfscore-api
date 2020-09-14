@@ -17,8 +17,8 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 
-app.use('api/scores', scoresRouter)
-app.use('api/courses', coursesRouter)
+app.use('/api/scores', scoresRouter)
+app.use('/api/courses', coursesRouter)
 
 console.log(process.env.NODE_ENV)
 
