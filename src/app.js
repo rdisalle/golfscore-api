@@ -15,7 +15,7 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors({'access-control-allow-origin': '*'}));
+app.use(cors());
 
 app.use('/api/scores', scoresRouter)
 app.use('/api/courses', coursesRouter)
