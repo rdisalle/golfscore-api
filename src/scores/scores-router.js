@@ -9,7 +9,6 @@ const jsonParser = express.json()
 const serializeScore = score => ({
     id: score.id,
     name: xss(score.name),
-    course: score.course,
     course_id: score.course_id,
     score_hole_one: score.score_hole_one,
     score_hole_two: score.score_hole_two,
@@ -46,12 +45,8 @@ scoresRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, course, course_id, score_hole_one, score_hole_two, score_hole_three, score_hole_four, score_hole_five, score_hole_six, score_hole_seven, 
-        score_hole_eight, score_hole_nine, score_hole_ten, score_hole_eleven, score_hole_twelve, score_hole_thirteen, score_hole_fourteen, score_hole_fifteen, 
-        score_hole_sixteen, score_hole_seventeen, score_hole_eighteen, total_score, to_par } = req.body
-    const newScore = { name, course, course_id, score_hole_one, score_hole_two, score_hole_three, score_hole_four, score_hole_five, score_hole_six, score_hole_seven, 
-        score_hole_eight, score_hole_nine, score_hole_ten, score_hole_eleven, score_hole_twelve, score_hole_thirteen, score_hole_fourteen, score_hole_fifteen, 
-        score_hole_sixteen, score_hole_seventeen, score_hole_eighteen, total_score, to_par  }
+    const addScore = req.body
+    const newScore = addScore
 
     for (const [key, value] of Object.entries(newScore))
       if (value == null)
@@ -104,12 +99,8 @@ scoresRouter
       .catch(next)
   })
   .patch(jsonParser, (req, res, next) => {
-    const { name, course, course_id, score_hole_one, score_hole_two, score_hole_three, score_hole_four, score_hole_five, score_hole_six, score_hole_seven, 
-        score_hole_eight, score_hole_nine, score_hole_ten, score_hole_eleven, score_hole_twelve, score_hole_thirteen, score_hole_fourteen, score_hole_fifteen, 
-        score_hole_sixteen, score_hole_seventeen, score_hole_eighteen, total_score, to_par } = req.body
-    const scoreToUpdate = { name, course, course_id, score_hole_one, score_hole_two, score_hole_three, score_hole_four, score_hole_five, score_hole_six, score_hole_seven, 
-        score_hole_eight, score_hole_nine, score_hole_ten, score_hole_eleven, score_hole_twelve, score_hole_thirteen, score_hole_fourteen, score_hole_fifteen, 
-        score_hole_sixteen, score_hole_seventeen, score_hole_eighteen, total_score, to_par }
+    const editScore = req.body
+    const scoreToUpdate = editScore
     const numberOfValues = Object.values(scoreToUpdate).filter(Boolean).length
     if (numberOfValues === 0) {
       return res.status(400).json({

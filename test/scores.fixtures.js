@@ -3,7 +3,6 @@ function makeScoresArray() {
         {
             id: 1,
             name: "Test score one",
-            course: "Test Course",
             course_id: 1,
             score_hole_one: "6",
             score_hole_two: "5",
@@ -30,7 +29,6 @@ function makeScoresArray() {
         {
             id: 2,
             name: "Test score two",
-            course: "Test Course",
             course_id: 2,
             score_hole_one: "6",
             score_hole_two: "5",
@@ -57,7 +55,6 @@ function makeScoresArray() {
         {
             id: 3,
             name: "Test score three",
-            course: "Test Course",
             course_id: 3,
             score_hole_one: "6",
             score_hole_two: "5",
@@ -88,7 +85,6 @@ function makeMaliciousScore() {
     const maliciousScore = {
         id: 911,
             name: 'Naughty naughty very naughty <script>alert("xss");</script>',
-            course: "Test Course",
             course_id: 3,
             score_hole_one: "6",
             score_hole_two: "5",
