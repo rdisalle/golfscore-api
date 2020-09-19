@@ -18,9 +18,6 @@ https://github.com/rdisalle/golfscore-app.git
 ![View Score](/img/view_score.png)
 ![Add Score](/img/add_score.png)
 ![Edit Score](/img/edit_score.png)
-![Landing Page Mobile](/img/landing_screen_mobile.png)
-![View Courses Page Mobile](/img/view_courses_page_mobile.png)
-![View Course Page Mobile](/img/course_mobile.png)
-![View Scores Page Mobile](/img/view_scores_mobile.png)
+
 
 
