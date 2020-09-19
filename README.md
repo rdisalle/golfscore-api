@@ -9,13 +9,13 @@ https://golfscore.vercel.app/
 https://github.com/rdisalle/golfscore-app.git
 
 ## Technology
-*React
-*CSS3
-*Node
-*PostgreSQL
-*RESTful APIs
-*Heroku
-*Vercel
+* React
+* CSS3
+* Node
+* PostgreSQL
+* RESTful APIs
+* Heroku
+* Vercel
 
 ## Summary
 Simply click "View Courses" below
