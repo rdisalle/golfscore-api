@@ -86,4 +86,4 @@ function makeCoursesArray() {
   
   module.exports = {
     makeCoursesArray
-  }
+  };

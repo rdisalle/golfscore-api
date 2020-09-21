@@ -1,6 +1,6 @@
 const CoursesService = {
     getAllCourses(knex) {
-      return knex.select('*').from('golfscore_courses')
+      return knex.select('*').from('golfscore_courses');
     },
     insertCourse(knex, newCourse) {
       return knex
@@ -9,14 +9,14 @@ const CoursesService = {
         .returning('*')
         .then(rows => {
           return rows[0]
-        })
+        });
     },
     getById(knex, id) {
       return knex
         .from('golfscore_courses')
         .select('*')
         .where('id', id)
-        .first()
+        .first();
     },
     deleteCourse(knex, id) {
       return knex('golfscore_courses')
@@ -26,8 +26,8 @@ const CoursesService = {
     updateCourse(knex, id, newCourseFields) {
       return knex('golfscore_courses')
         .where({ id })
-        .update(newCourseFields)
+        .update(newCourseFields);
     },
-  }
+  };
   
-  module.exports = CoursesService
+  module.exports = CoursesService;

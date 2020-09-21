@@ -79,7 +79,7 @@ function makeScoresArray() {
             date_modified: "2020-01-22T16:28:32.615Z"
         }
     ];
-}
+};
 
 function makeMaliciousScore() {
     const maliciousScore = {
@@ -107,18 +107,18 @@ function makeMaliciousScore() {
             total_score: "80",
             to_par: "+8",
             date_modified: new Date().toISOString()
-    }
+    };
     const expectedScore = {
       ...maliciousScore,
       name: 'Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;',
-    }
+    };
     return {
       maliciousScore,
       expectedScore,
-    }
-  }
+    };
+  };
   
   module.exports = {
     makeScoresArray,
     makeMaliciousScore,
-  }
+  };

@@ -26,6 +26,13 @@ Once done, you will be able to view that score under the course selected.
 GolfScore will allow you to easily submit all courses played and the scores to go with them.
 From here you will be able to easily compare your scores.
 
+## API Endpoints
+The API endpoints used are below:
+* /courses - Used for get and post requests
+* /courses/:course_id - Used for get, delete, and patch requests.
+* /scores - Used for get and post requests
+* /scores/:score_id - Used for get, delete, and patch requests.
+
 ## Screenshots
 ![Landing Page](/img/landing_page.png)
 ![View Courses Page](/img/view_courses_page.png)

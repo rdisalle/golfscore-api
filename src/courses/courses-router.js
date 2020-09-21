@@ -1,10 +1,10 @@
-const path = require('path')
-const express = require('express')
-const xss = require('xss')
-const CoursesService = require('./courses-service')
+const path = require('path');
+const express = require('express');
+const xss = require('xss');
+const CoursesService = require('./courses-service');
 
-const coursesRouter = express.Router()
-const jsonParser = express.json()
+const coursesRouter = express.Router();
+const jsonParser = express.json();
 
 const serializeCourse = course => ({
     id: course.id,
@@ -32,27 +32,27 @@ const serializeCourse = course => ({
     course_par_hole_eighteen: course.course_par_hole_eighteen,
     course_summary: course.course_summary,
     course_url: course.course_url,
-  })
+  });
 
 coursesRouter
   .route('/')
   .get((req, res, next) => {
-    const knexInstance = req.app.get('db')
+    const knexInstance = req.app.get('db');
     CoursesService.getAllCourses(knexInstance)
       .then(courses => {
-        res.json(courses.map(serializeCourse))
+        res.json(courses.map(serializeCourse));
       })
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const addCourse = req.body
-    const newCourse = addCourse
+    const addCourse = req.body;
+    const newCourse = addCourse;
 
     for (const [key, value] of Object.entries(newCourse))
       if (value == null)
         return res.status(400).json({
           error: { message: `Missing '${key}' in request body` }
-        })
+        });
 
     CoursesService.insertCourse(
       req.app.get('db'),
@@ -65,7 +65,7 @@ coursesRouter
           .json(serializeCourse(course))
       })
       .catch(next)
-  })
+  });
 
 coursesRouter
   .route('/:course_id')
@@ -78,7 +78,7 @@ coursesRouter
         if (!course) {
           return res.status(404).json({
             error: { message: `Course doesn't exist` }
-          })
+          });
         }
         res.course = course
         next()
@@ -86,7 +86,7 @@ coursesRouter
       .catch(next)
   })
   .get((req, res, next) => {
-    res.json(serializeCourse(res.course))
+    res.json(serializeCourse(res.course));
   })
   .delete((req, res, next) => {
     CoursesService.deleteCourse(
@@ -94,20 +94,20 @@ coursesRouter
       req.params.course_id
     )
       .then(numRowsAffected => {
-        res.status(204).end()
+        res.status(204).end();
       })
       .catch(next)
   })
   .patch(jsonParser, (req, res, next) => {
-    const courseUpdate = req.body
-    const courseToUpdate = courseUpdate
-    const numberOfValues = Object.values(courseToUpdate).filter(Boolean).length
+    const courseUpdate = req.body;
+    const courseToUpdate = courseUpdate;
+    const numberOfValues = Object.values(courseToUpdate).filter(Boolean).length;
     if (numberOfValues === 0) {
       return res.status(400).json({
         error: {
           message: `Request body must contain '${key}'`
         }
-      })
+      });
     }
 
       CoursesService.updateCourse(
@@ -119,6 +119,6 @@ coursesRouter
           res.status(204).end()
         })
         .catch(next)
-  })
+  });
 
-module.exports = coursesRouter
+module.exports = coursesRouter;

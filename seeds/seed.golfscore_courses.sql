@@ -1,4 +1,4 @@
-A  
+ 
 INSERT INTO golfscore_courses (id, name, location, course_distance, course_par, course_par_hole_one, course_par_hole_two, course_par_hole_three, course_par_hole_four, course_par_hole_five, course_par_hole_six, course_par_hole_seven,
 course_par_hole_eight, course_par_hole_nine, course_par_hole_ten, course_par_hole_eleven, course_par_hole_twelve, course_par_hole_thirteen, course_par_hole_fourteen, course_par_hole_fifteen, course_par_hole_sixteen,
 course_par_hole_seventeen, course_par_hole_eighteen, course_summary, course_url)

@@ -1,6 +1,6 @@
 const ScoresService = {
     getAllScores(knex) {
-      return knex.select('*').from('golfscore_scores')
+      return knex.select('*').from('golfscore_scores');
     },
     insertScore(knex, newScore) {
       return knex
@@ -9,7 +9,7 @@ const ScoresService = {
         .returning('*')
         .then(rows => {
           return rows[0]
-        })
+        });
     },
     getById(knex, id) {
       return knex
@@ -28,6 +28,6 @@ const ScoresService = {
         .where({ id })
         .update(newScoreFields)
     },
-  }
+  };
   
-  module.exports = ScoresService
+  module.exports = ScoresService;
