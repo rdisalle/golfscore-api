@@ -32,7 +32,7 @@ const serializeScore = score => ({
     to_par: score.to_par,
     date_modified: score.date_modified,
   })
-  
+
 
 scoresRouter
   .route('/')

@@ -6,7 +6,7 @@ https://golfscore.vercel.app/
 
 ## App GitHub
 
-https://github.com/rdisalle/golfscore-app.git
+https://github.com/rdisalle/golfscore-api.git
 
 ## Technology
 * React

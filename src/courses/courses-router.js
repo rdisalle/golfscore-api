@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const xss = require('xss');
 const CoursesService = require('./courses-service');
-
 const coursesRouter = express.Router();
 const jsonParser = express.json();
 
